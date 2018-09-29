@@ -2,13 +2,13 @@
 #include <cmath>
 using namespace std;
 
-int recursive_prime(int c, int rnd, int p, int count)
+int recursive_rand(int c, int rnd, int p, int count)
 {
     if (count > 0)
     {   rnd = (c*rnd)%p;
         cout << " " << rnd;
         count--;
-        return recursive_prime(c, rnd, p, count);
+        return recursive_rand(c, rnd, p, count);
     }
     else{
         cout<< " ";
@@ -18,15 +18,15 @@ int recursive_prime(int c, int rnd, int p, int count)
 
 int main(int argc, char **argv){
     int c = 3;
-    int p = 55;
+    int p = 31;
     int rnd = 2;
     cout<<"C-RNG: ";
-    recursive_prime(c,rnd,p, 10);
+    recursive_rand(c,rnd,p, 100);
     cout<< "\n";
 
     int i = 1;
     cout<<"rand(): ";
-    while (i<10){
+    while (i<=10){
     cout  << " "<< rand()%p+rnd;
     i++;
     }
@@ -34,7 +34,7 @@ int main(int argc, char **argv){
 
     i = 1;
     cout<<"drand48(): ";
-    while (i<10){
+    while (i<=10){
     cout  << " "<< int( drand48()*p+rnd);
     i++;
     }
